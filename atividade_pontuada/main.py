@@ -21,18 +21,6 @@ from atividade_pontuada.models.endereco import Endereco
 import os
 os.system("cls || clear")
 
-engenheiro1 = Engenheiro("creafodase", 
-                         Funcionario("cpf123",
-                                     "rg123",
-                                     "matrícula123",
-                                     Setor.JURIDICO,
-                                     2,
-                                     Fisica("10/10/10",
-                                            Genero.MASCULINO,
-                                            Pessoa("id",
-                                                   "nome",
-                                                   "telefone",
-                                                   "email",
-                                                   ))))
+engenheiro1 = Engenheiro()
 
 
