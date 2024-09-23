@@ -1,3 +1,9 @@
+"""
+Dupla:
+Erick Breno Pereira
+João Victor Soares
+"""
+
 from atividade_pontuada.models.enums.setor import Setor
 from atividade_pontuada.models.fisica import Fisica
 from atividade_pontuada.models.enums.unidadeFederativa import UnidadeFederativa
