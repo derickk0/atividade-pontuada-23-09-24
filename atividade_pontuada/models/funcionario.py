@@ -2,13 +2,7 @@ from atividade_pontuada.models.enums.setor import Setor
 from atividade_pontuada.models.fisica import Fisica
 
 class Funcionario:
-    def __init__(self, 
-                 cpf:str,
-                 rg:str,
-                 matricula:str,
-                 setor:Setor,
-                 salario:float,
-                 pessoaFisica:Fisica) -> None:
+    def __init__(self, cpf:str, rg:str, matricula:str, setor:Setor, salario:float, pessoaFisica:Fisica) -> None:
         self.cpf = cpf
         self.rg = rg
         self.matricula = matricula
