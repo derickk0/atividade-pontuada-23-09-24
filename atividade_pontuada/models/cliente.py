@@ -1,4 +1,3 @@
-import os 
 from atividade_pontuada.models.fisica import Fisica
 
 class Cliente: 

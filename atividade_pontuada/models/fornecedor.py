@@ -7,4 +7,4 @@ class Fornecedor:
 
     def __str__(self) -> str:
         return (f"\n{self.pessoaJuridica}"
-                f"\n{self.produto}")
+                f"\nProduto: {self.produto}")

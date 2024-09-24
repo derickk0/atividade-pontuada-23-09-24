@@ -16,4 +16,8 @@ class Funcionario:
                 f"\nMatrícula: {self.matricula}"
                 f"\nSetor: {self.setor}"
                 f"\nSalário: {self.salario}"
+<<<<<<< HEAD
                 f"\n{self.fisica}")
+=======
+                f"{self.pessoaFisica}")
+>>>>>>> 6c7c5dc (update atividade)

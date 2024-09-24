@@ -1,9 +1,8 @@
 from enum import Enum
 
 class Genero(enumerate):
-    MASCULINO = ("Masculino", "M")
-    FEMININO = ("Feminino", "F")
+    MASCULINO = ("Masculino")
+    FEMININO = ("Feminino")
 
-    def __init__(self, texto: str, caracter: str) -> None:
+    def __init__(self, texto: str) -> None:
         self.texto = texto
-        self.caracter = caracter
