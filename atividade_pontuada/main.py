@@ -23,12 +23,8 @@ from atividade_pontuada.models.fornecedor import Fornecedor
 import os
 os.system("cls || clear")
 
-<<<<<<< HEAD
-engenheiro1 = Engenheiro()
-=======
 engenheiro1 = Engenheiro("crea", Funcionario("cpfEng","rgEng","matriculaEng", Setor.ENGENHARIA, 3000, Fisica("dataNascimento",Genero.MASCULINO, Pessoa(
     "ID", "nome", "telefone", "email", Endereco("logradouro", "numero", "complemento", "cep", "cidade", UnidadeFederativa.BAHIA)))))
->>>>>>> 6c7c5dc (update atividade)
 
 medico1 = Medico("crm", Funcionario("cpf", "rg", "matricula", Setor.SAUDE, 5000, Fisica("dataNascimento", Genero.FEMININO, Pessoa(
     "id", "nome", "telefone", "email", Endereco("logradouro", "numero", "complemento", "cep", "cidade", UnidadeFederativa.SAO_PAULO)))))

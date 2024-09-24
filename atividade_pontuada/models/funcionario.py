@@ -16,4 +16,5 @@ class Funcionario:
                 f"\nMatrícula: {self.matricula}"
                 f"\nSetor: {self.setor}"
                 f"\nSalário: {self.salario}"
-                f"\n{self.fisica}")
+                f"\n{self.pessoaFisica}")
+                
