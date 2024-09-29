@@ -11,16 +11,17 @@ from atividade_pontuada.models.enums.genero import Genero
 
 @pytest.fixture
 def criar_advogado():
-    advogado1 = Advogado("oab", Funcionario("cpf", "rg", "matricula", Setor.JURIDICO, 8000, Fisica("dataNascimento", Genero.FEMININO, Pessoa(
-    "id", "nome", "telefone", "email", Endereco("logradouro", "numero", "complemento", "cep", "cidade", UnidadeFederativa.RIO_DE_JANEIRO)))))
-
+    advogado1 = Advogado("oabDocumento", Funcionario)
     return advogado1
 
-def test_avalidando_nome_advogado(criar_advogado):
-    assert criar_advogado.nome == "nome"
+def test_advogado_alterar_oab_valido(criar_advogado):
+    criar_advogado.oab = "oabSecundario"
+    assert criar_advogado.oab == "oabSecundario"
 
-def test_nome_advogado_retorna_mensagem_excecao(criar_advogado):
-    with pytest.raises(ValueError, match="Nome apenas letras."):
-        Advogado("oab", Funcionario("cpf", "rg", "matricula", Setor.JURIDICO, 8000, Fisica("dataNascimento", Genero.FEMININO, Pessoa(
-        "id", "nome", "telefone", "email", Endereco("logradouro", "numero", "complemento", "cep", "cidade", UnidadeFederativa.RIO_DE_JANEIRO)))))
-        
+def test_advogado_oab_tipo_invalido_retorna_mensagem_erro():
+    with pytest.raises(TypeError, match="A OAB deve ser um texto."):
+        Advogado(2, Funcionario)
+
+def test_advogado_oab_vazio_retorna_mensagem_erro():
+    with pytest.raises(ValueError, match="A OAB não deve estar vazio."):
+        Advogado("", Funcionario)

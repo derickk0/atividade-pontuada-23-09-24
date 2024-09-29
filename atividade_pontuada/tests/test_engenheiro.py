@@ -12,15 +12,17 @@ from atividade_pontuada.models.pessoa import Pessoa
 
 @pytest.fixture
 def criar_engenheiro():
-    engenheiro1 = Engenheiro("crea", Funcionario("cpfEng","rgEng","matriculaEng", Setor.ENGENHARIA, 3000, Fisica("dataNascimento",Genero.MASCULINO, Pessoa(
-    "ID", "nome", "telefone", "email", Endereco("logradouro", "numero", "complemento", "cep", "cidade", UnidadeFederativa.BAHIA)))))
-    
-    return Engenheiro
+    engenheiro1 = Engenheiro("crea", Funcionario)
+    return engenheiro1
 
-def test_nome_valido_engenheiro(criar_engenheiro):
-    assert criar_engenheiro.nome == "nome"
+def test_engenheiro_alterar_crea_valido(criar_engenheiro):
+    criar_engenheiro.crea = "crea2"
+    assert criar_engenheiro.crea == "crea2"
 
-def test_nome_engenheiro_retorna_mensagem_excecao(criar_engenheiro):
-    with pytest.raises(ValueError, match="Nome apenas letras."):
-        Engenheiro("crea", Funcionario("cpfEng","rgEng","matriculaEng", Setor.ENGENHARIA, 3000, Fisica("dataNascimento",Genero.MASCULINO, Pessoa(
-    "ID", "nome", "telefone", "email", Endereco("logradouro", "numero", "complemento", "cep", "cidade", UnidadeFederativa.BAHIA)))))
+def test_engenheiro_crea_tipo_invalido_retorna_mensagem_erro():
+    with pytest.raises(TypeError, match="A CREA deve ser um texto."):
+        Engenheiro(2, Funcionario)
+
+def test_engenheiro_crea_vazio_retorna_mensagem_erro():
+    with pytest.raises(ValueError, match="A CREA não deve estar vazio."):
+        Engenheiro("", Funcionario)

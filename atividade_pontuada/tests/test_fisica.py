@@ -5,23 +5,23 @@ from atividade_pontuada.models.endereco import Endereco
 from atividade_pontuada.models.enums.unidadeFederativa import UnidadeFederativa
 from atividade_pontuada.models.enums.estadoCivil import EstadoCivil
 from atividade_pontuada.models.enums.setor import Setor
-from atividade_pontuada.models.juridica import Juridica
+from atividade_pontuada.models.fisica import Fisica
 from atividade_pontuada.models.pessoa import Pessoa
+from atividade_pontuada.models.enums.genero import Genero
 
 @pytest.fixture
-def fornecedor_valido():
-    fornecedor1 = Fornecedor("produtoBom", Juridica)
-    return fornecedor1
+def fisica_valida():
+    fisica1 = Fisica("dataNascimento1", Genero.MASCULINO, Pessoa)
+    return fisica1
 
-def test_fornecedor_alterar_produto_valido(fornecedor_valido):
-    fornecedor_valido.produto = "produtoRuim"
-    assert fornecedor_valido.produto == "produtoRuim"
+def test_fisica_alterar_dataNascimento_valido(fisica_valida):
+    fisica_valida.dataNascimento = "10 / 10"
+    assert fisica_valida.dataNascimento == "10 / 10"
 
-def test_fornecedor_produto_tipo_invalido_retorna_mensagem_erro():
+def test_fisica_dataNascimento_tipo_invalido_retorna_mensagem_erro():
     with pytest.raises(TypeError, match="O nome deve ser um texto."):
-        Fornecedor(2, Juridica)
+        Fisica(2, Genero.MASCULINO, Pessoa)
 
-def test_fornecedor_produto_vazio_retorna_mensagem_erro():
+def test_fisica_dataNascimento_vazio_retorna_mensagem_erro():
     with pytest.raises(ValueError, match="O nome não deve estar vazio."):
-        Fornecedor("", Juridica)
-
+        Fisica("", Genero.MASCULINO, Pessoa)

@@ -4,21 +4,22 @@ Erick Breno Pereira
 João Victor Soares
 """
 
-from atividade_pontuada.models.enums.setor import Setor
-from atividade_pontuada.models.fisica import Fisica
-from atividade_pontuada.models.enums.unidadeFederativa import UnidadeFederativa
-from atividade_pontuada.models.engenheiro import Engenheiro
-from atividade_pontuada.models.medico import Medico
-from atividade_pontuada.models.advogado import Advogado
-from atividade_pontuada.models.cliente import Cliente
-from atividade_pontuada.models.prestacaoServico import PrestacaoServico
-from atividade_pontuada.models.fornecedor import Fornecedor
-from atividade_pontuada.models.funcionario import Funcionario
-from atividade_pontuada.models.enums.genero import Genero
-from atividade_pontuada.models.pessoa import Pessoa
-from atividade_pontuada.models.endereco import Endereco
-from atividade_pontuada.models.juridica import Juridica
-from atividade_pontuada.models.fornecedor import Fornecedor
+"""""
+from models.enums.setor import Setor
+from models.fisica import Fisica
+from models.enums.unidadeFederativa import UnidadeFederativa
+from models.engenheiro import Engenheiro
+from models.medico import Medico
+from models.advogado import Advogado
+from models.cliente import Cliente
+from models.prestacaoServico import PrestacaoServico
+from models.fornecedor import Fornecedor
+from models.funcionario import Funcionario
+from models.enums.genero import Genero
+from models.pessoa import Pessoa
+from models.endereco import Endereco
+from models.juridica import Juridica
+from models.fornecedor import Fornecedor
 
 import os
 os.system("cls || clear")
@@ -47,3 +48,4 @@ print(f"\nAdvogado ----" f"{advogado1}")
 print(f"\nCliente ----" f"{cliente1}")
 print(f"\nJurídico / Prestação de serviço ----" f"{juridicoPrestacaoServico1}")
 print(f"\nJurídico / Fornecedor ----" f"{juridicoFornecedor}")
+"""

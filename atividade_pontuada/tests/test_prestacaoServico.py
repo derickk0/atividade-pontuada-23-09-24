@@ -10,16 +10,18 @@ from atividade_pontuada.models.pessoa import Pessoa
 from atividade_pontuada.models.prestacaoServico import PrestacaoServico
 
 @pytest.fixture
-def criar_prestacaoServico():
-    prestacaoServico1 = PrestacaoServico("inicoContrato", "fimContrato", Juridica("cpnj", "inscrição Estadual", Pessoa(
-    "id", "nome", "telefone", "email", Endereco("logradouro", "numero", "complemento", "cep", "cidade", UnidadeFederativa.RIO_DE_JANEIRO))))
-
+def prestacaoServico_valido():
+    prestacaoServico1 = PrestacaoServico("contratoInicio1", "contratoFim", Juridica)
     return prestacaoServico1
 
-def test_prestacaoServico_nome_valido(criar_prestacaoServico):
-    assert criar_prestacaoServico.nome == "Nome"
+def test_prestacaoServico_alterar_contratoInicio_valido(funcionario_valido):
+    prestacaoServico_valido.contratoInicio = "contratoInicio45"
+    assert prestacaoServico_valido.contratoInicio == "contratoInicio45"
 
-def test_nome_prestacaoServico_retorna_mensagem_excecao(criar_prestacaoServico):
-    with pytest.raises(ValueError, match="Nome apenas letras."):
-        prestacaoServico1 = PrestacaoServico("inicoContrato", "fimContrato", Juridica("cpnj", "inscrição Estadual", Pessoa(
-        "id", "nome", "telefone", "email", Endereco("logradouro", "numero", "complemento", "cep", "cidade", UnidadeFederativa.RIO_DE_JANEIRO))))
+def test_funcionario_cpf_tipo_invalido_retorna_mensagem_erro():
+    with pytest.raises(TypeError, match="O nome deve ser um texto."):
+        PrestacaoServico(2, "contratoFim", Juridica)
+
+def test_funcionario_cpf_vazio_retorna_mensagem_erro():
+    with pytest.raises(ValueError, match="O nome não deve estar vazio."):
+        PrestacaoServico("", "contratoFim", Juridica)

@@ -5,23 +5,22 @@ from atividade_pontuada.models.endereco import Endereco
 from atividade_pontuada.models.enums.unidadeFederativa import UnidadeFederativa
 from atividade_pontuada.models.enums.estadoCivil import EstadoCivil
 from atividade_pontuada.models.enums.setor import Setor
-from atividade_pontuada.models.juridica import Juridica
+from atividade_pontuada.models.fisica import Fisica
 from atividade_pontuada.models.pessoa import Pessoa
 
 @pytest.fixture
-def fornecedor_valido():
-    fornecedor1 = Fornecedor("produtoBom", Juridica)
-    return fornecedor1
+def funcionario_valido():
+    funcionario1 = Funcionario("cpf1","rg", "matricula", Setor.OPERACOES, 5000, Fisica)
+    return funcionario1
 
-def test_fornecedor_alterar_produto_valido(fornecedor_valido):
-    fornecedor_valido.produto = "produtoRuim"
-    assert fornecedor_valido.produto == "produtoRuim"
+def test_funcionario_alterar_cpf_valido(funcionario_valido):
+    funcionario_valido.cpf = "cpf2"
+    assert funcionario_valido.cpf == "cpf2"
 
-def test_fornecedor_produto_tipo_invalido_retorna_mensagem_erro():
+def test_funcionario_cpf_tipo_invalido_retorna_mensagem_erro():
     with pytest.raises(TypeError, match="O nome deve ser um texto."):
-        Fornecedor(2, Juridica)
+        Funcionario(2, "rg", "matricula", Setor.OPERACOES, 5000, Fisica)
 
-def test_fornecedor_produto_vazio_retorna_mensagem_erro():
+def test_funcionario_cpf_vazio_retorna_mensagem_erro():
     with pytest.raises(ValueError, match="O nome não deve estar vazio."):
-        Fornecedor("", Juridica)
-
+        Funcionario("", "rg", "matricula", Setor.OPERACOES, 5000, Fisica)
