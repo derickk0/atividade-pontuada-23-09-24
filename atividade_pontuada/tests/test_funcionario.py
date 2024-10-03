@@ -13,14 +13,28 @@ def funcionario_valido():
     funcionario1 = Funcionario("cpf1","rg", "matricula", Setor.OPERACOES, 5000, Fisica)
     return funcionario1
 
+# Testando CPF
 def test_funcionario_alterar_cpf_valido(funcionario_valido):
     funcionario_valido.cpf = "cpf2"
     assert funcionario_valido.cpf == "cpf2"
 
 def test_funcionario_cpf_tipo_invalido_retorna_mensagem_erro():
-    with pytest.raises(TypeError, match="O nome deve ser um texto."):
+    with pytest.raises(TypeError, match="O CPF deve ser um texto."):
         Funcionario(2, "rg", "matricula", Setor.OPERACOES, 5000, Fisica)
 
 def test_funcionario_cpf_vazio_retorna_mensagem_erro():
-    with pytest.raises(ValueError, match="O nome não deve estar vazio."):
+    with pytest.raises(ValueError, match="O CPF não deve estar vazio."):
         Funcionario("", "rg", "matricula", Setor.OPERACOES, 5000, Fisica)
+
+# Testando RG
+def test_funcionario_alterar_rg_valido(funcionario_valido):
+    funcionario_valido.rg = "rg2"
+    assert funcionario_valido.rg == "rg2"
+
+def test_funcionario_rg_tipo_invalido_retorna_mensagem_erro():
+    with pytest.raises(TypeError, match="O RG deve ser um texto."):
+        Funcionario("cpf", 5, "matricula", Setor.OPERACOES, 5000, Fisica)
+
+def test_funcionario_rg_vazio_retorna_mensagem_erro():
+    with pytest.raises(ValueError, match="O RG não deve estar vazio."):
+        Funcionario("cpf", "", "matricula", Setor.OPERACOES, 5000, Fisica)

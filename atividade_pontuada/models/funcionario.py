@@ -4,14 +4,14 @@ from atividade_pontuada.models.fisica import Fisica
 class Funcionario:
     def __init__(self, cpf:str, rg:str, matricula:str, setor:Setor, salario:float, pessoaFisica:Fisica) -> None:
         self.cpf = self._verificar_cpf(cpf)
-        self.rg = rg
-        self.matricula = matricula
+        self.rg = self._verificar_rg(rg)
+        self.matricula = self._verificar_matricula(matricula)
         self.setor = setor
         self.salario = salario
         self.pessoaFisica = pessoaFisica
 
+    # Teste CPF
     def _verificar_cpf(self, valor):
-        """Método para verificação de nome."""
         self._verificar_cpf_tipo_invalido(valor)
         self._verificar_cpf_vazio_invalido(valor)
 
@@ -19,21 +19,41 @@ class Funcionario:
         return self.cpf
     
     def _verificar_cpf_tipo_invalido(self, valor):
-        """Método auxiliar para verificação de tipo de dado inválidio."""
         if not isinstance(valor, str):
-            raise TypeError("O nome deve ser um texto.")
+            raise TypeError("O CPF deve ser um texto.")
         
     def _verificar_cpf_vazio_invalido(self, valor):
-        """Método auxiliar para verificação de nome vazio."""
-        # 'strip()' Verifica se o nome está vazio ou contém apenas espaços.
         if not valor.strip():
-            raise ValueError("O nome não deve estar vazio.")
+            raise ValueError("O CPF não deve estar vazio.")
 
-    def __str__(self) -> str:
-        return (f"\nCPF: {self.cpf}"
-                f"\nRG: {self.rg}"
-                f"\nMatrícula: {self.matricula}"
-                f"\nSetor: {self.setor}"
-                f"\nSalário: {self.salario}"
-                f"\n{self.pessoaFisica}")
-                
+    # Teste RG
+    def _verificar_rg(self, valor2):
+        self._verificar_rg_tipo_invalido(valor2)
+        self._verificar_rg_vazio_invalido(valor2)
+
+        self.rg = valor2
+        return self.rg
+    
+    def _verificar_rg_tipo_invalido(self, valor2):
+        if not isinstance(valor2, str):
+            raise TypeError("O RG deve ser um texto.")
+        
+    def _verificar_rg_vazio_invalido(self, valor2):
+        if not valor2.strip():
+            raise ValueError("O RG não deve estar vazio.")
+    
+    # Teste matrícula
+    def _verificar_matricula(self, valor3):
+        self._verificar_matricula_tipo_invalido(valor3)
+        self._verificar_matricula_vazio_invalido(valor3)
+
+        self.matricula = valor3
+        return self.matricula
+    
+    def _verificar_matricula_tipo_invalido(self, valor3):
+        if not isinstance(valor3, str):
+            raise TypeError("A matrícula deve ser um texto.")
+        
+    def _verificar_matricula_vazio_invalido(self, valor3):
+        if not valor3.strip():
+            raise ValueError("A matrícula não deve estar vazio.")
