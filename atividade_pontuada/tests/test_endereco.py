@@ -18,9 +18,9 @@ def test_endereco_alterar_logradouro_valido(endereco_valido):
     assert endereco_valido.logradouro == "logradouro2"
 
 def test_endereco_logradouro_tipo_invalido_retorna_mensagem_erro():
-    with pytest.raises(TypeError, match="O nome deve ser um texto."):
+    with pytest.raises(TypeError, match="O logradouro deve ser um texto."):
         Endereco(2, "numero", "complemento", "cep", "cidade", UnidadeFederativa.BAHIA)
 
 def test_endereco_logradouro_vazio_retorna_mensagem_erro():
-    with pytest.raises(ValueError, match="O nome não deve estar vazio."):
+    with pytest.raises(ValueError, match="O logradouro não deve estar vazio."):
         Endereco("", "numero", "complemento", "cep", "cidade", UnidadeFederativa.BAHIA)

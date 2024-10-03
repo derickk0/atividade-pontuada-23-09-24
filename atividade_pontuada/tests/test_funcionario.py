@@ -45,11 +45,11 @@ def test_funcionario_alterar_matricula_valido(funcionario_valido):
     assert funcionario_valido.matricula == "matricula2"
 
 def test_funcionario_matricula_tipo_invalido_retorna_mensagem_erro():
-    with pytest.raises(TypeError, match="O matrícula deve ser um texto."):
+    with pytest.raises(TypeError, match="A matrícula deve ser um texto."):
         Funcionario("cpf", "rg1", 5, Setor.OPERACOES, 5000, Fisica)
 
 def test_funcionario_matricula_vazio_retorna_mensagem_erro():
-    with pytest.raises(ValueError, match="O matrícula não deve estar vazio."):
+    with pytest.raises(ValueError, match="A matrícula não deve estar vazio."):
         Funcionario("cpf", "rg", "", Setor.OPERACOES, 5000, Fisica)
 
 # Teste salário
@@ -63,4 +63,4 @@ def test_funcionario_salario_tipo_invalido_retorna_mensagem_erro():
 
 def test_funcionario_salario_negativo_retorna_mensagem_erro():
     with pytest.raises(ValueError, match="O salário não deve ser negativo."):
-        Funcionario("cpf", "rg", "matricula", Setor.OPERACOES, -2500, Fisica)
+        Funcionario("cpf", "rg", "matricula", Setor.OPERACOES, -2550, Fisica)

@@ -18,10 +18,10 @@ def test_fornecedor_alterar_produto_valido(fornecedor_valido):
     assert fornecedor_valido.produto == "produtoRuim"
 
 def test_fornecedor_produto_tipo_invalido_retorna_mensagem_erro():
-    with pytest.raises(TypeError, match="O nome deve ser um texto."):
+    with pytest.raises(TypeError, match="O produto deve ser um texto."):
         Fornecedor(2, Juridica)
 
 def test_fornecedor_produto_vazio_retorna_mensagem_erro():
-    with pytest.raises(ValueError, match="O nome não deve estar vazio."):
+    with pytest.raises(ValueError, match="O produto não deve estar vazio."):
         Fornecedor("", Juridica)
 

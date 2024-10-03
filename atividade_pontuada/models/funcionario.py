@@ -61,15 +61,15 @@ class Funcionario:
     # Teste salário
     def _verificar_salario(self, valor4):
         self._verificar_salario_tipo_invalido(valor4)
-        self._verificar_salario_negativo_invalido(valor4)
+        self._verificar_salario_negativo(valor4)
 
         self.salario = valor4
         return self.salario
     
     def _verificar_salario_tipo_invalido(self, valor4):
-        if not isinstance(valor4, float):
+        if not isinstance(valor4, int):
             raise TypeError("O salário deve ser um número.")
         
-    def _verificar_salario_negativo_invalido(self, valor4):
-        if valor4 < 0:
-            raise ValueError("O salário não deve ser negativo.")
+    def _verificar_salario_negativo(self, valor4):
+        if valor4 <= 0:
+            raise ValueError("O salário não deve ser negativo.")     

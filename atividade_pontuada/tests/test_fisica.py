@@ -19,9 +19,9 @@ def test_fisica_alterar_dataNascimento_valido(fisica_valida):
     assert fisica_valida.dataNascimento == "10 / 10"
 
 def test_fisica_dataNascimento_tipo_invalido_retorna_mensagem_erro():
-    with pytest.raises(TypeError, match="O nome deve ser um texto."):
+    with pytest.raises(TypeError, match="A data de nascimento deve ser um texto."):
         Fisica(2, Genero.MASCULINO, Pessoa)
 
 def test_fisica_dataNascimento_vazio_retorna_mensagem_erro():
-    with pytest.raises(ValueError, match="O nome não deve estar vazio."):
+    with pytest.raises(ValueError, match="A data de nascimento não deve estar vazio."):
         Fisica("", Genero.MASCULINO, Pessoa)
