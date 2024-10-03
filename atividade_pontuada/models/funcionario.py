@@ -7,7 +7,7 @@ class Funcionario:
         self.rg = self._verificar_rg(rg)
         self.matricula = self._verificar_matricula(matricula)
         self.setor = setor
-        self.salario = salario
+        self.salario = self._verificar_salario(salario)
         self.pessoaFisica = pessoaFisica
 
     # Teste CPF
@@ -57,3 +57,19 @@ class Funcionario:
     def _verificar_matricula_vazio_invalido(self, valor3):
         if not valor3.strip():
             raise ValueError("A matrícula não deve estar vazio.")
+
+    # Teste salário
+    def _verificar_salario(self, valor4):
+        self._verificar_salario_tipo_invalido(valor4)
+        self._verificar_salario_negativo_invalido(valor4)
+
+        self.salario = valor4
+        return self.salario
+    
+    def _verificar_salario_tipo_invalido(self, valor4):
+        if not isinstance(valor4, float):
+            raise TypeError("O salário deve ser um número.")
+        
+    def _verificar_salario_negativo_invalido(self, valor4):
+        if valor4 < 0:
+            raise ValueError("O salário não deve ser negativo.")
